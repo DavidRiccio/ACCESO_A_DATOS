@@ -1,8 +1,9 @@
-Variables y Condicionales
+## Variables y Condicionales
 
-Pide dos números y muestra cuál es mayor o si son iguales.
+### Pide dos números y muestra cuál es mayor o si son iguales.
 
 CODIGO:
+
 ```php
 <?php
 
@@ -21,20 +22,22 @@ if ($num1 > $num2){
 ```
 
 SALIDA:
+
 ```code
-root@f78e7eba6dfb:/var/www/html/public# php index.php 
+root@f78e7eba6dfb:/var/www/html/public# php index.php
 Introduce el primer número: 2
 Introduce el segundo número: 4
 Numero 2 es mayor
 ```
 
-Pide la edad de una persona y muestra:
+### Pide la edad de una persona y muestra:
 
 "Eres menor de edad" si es < 18.
 
 "Eres mayor de edad" si es ≥ 18.
 
 CODIGO:
+
 ```php
 
 <?php
@@ -47,9 +50,11 @@ if ($age >= 18){
 }
 ?>
 ```
+
 SALIDA:
+
 ```code
-root@f78e7eba6dfb:/var/www/html/public# php index.php 
+root@f78e7eba6dfb:/var/www/html/public# php index.php
 Introduce tu edad
 17
 Es menor de edad
@@ -59,9 +64,10 @@ Introduce tu edad
 Es mayor de edad
 ```
 
-Comprueba si un número almacenado en una variable es positivo, negativo o cero.
+### Comprueba si un número almacenado en una variable es positivo, negativo o cero.
 
 CODIGO:
+
 ```php
 <?php
 
@@ -80,28 +86,30 @@ echo $result
 ```
 
 SALIDA:
+
 ```code
 number -10 = Es Negativo
 number 0 = Es Cero
 number 2 = Es Positivo
 ```
 
-Pide la nota de un alumno y muestra:
+### Pide la nota de un alumno y muestra:
 
 "Suspenso" (< 5), "Aprobado" (5–6), "Notable" (7–8), "Sobresaliente" (9–10).
 
 CODIGO:
+
 ```php
 <?php
 $grade = (float) readline("Introduce la nota: ");
 
 if ($grade < 5) {
     $result = "Suspenso";
-} elseif ($grade <= 6) {  
+} elseif ($grade <= 6) {
     $result = "Aprobado";
-} elseif ($grade <= 8) {   
+} elseif ($grade <= 8) {
     $result = "Notable";
-} elseif ($grade <= 10) { 
+} elseif ($grade <= 10) {
     $result = "Sobresaliente";
 } else {
     $result = "Nota inválida";
@@ -112,31 +120,33 @@ echo "$result\n";
 ```
 
 SALIDA:
+
 ```code
 
-root@f78e7eba6dfb:/var/www/html/public# php index.php 
+root@f78e7eba6dfb:/var/www/html/public# php index.php
 Introduce la nota: 3
 Suspenso
 
 
-root@f78e7eba6dfb:/var/www/html/public# php index.php 
+root@f78e7eba6dfb:/var/www/html/public# php index.php
 Introduce la nota: 5
 Aprobado
 
-root@f78e7eba6dfb:/var/www/html/public# php index.php 
+root@f78e7eba6dfb:/var/www/html/public# php index.php
 Introduce la nota: 8
 Notable
 
-root@f78e7eba6dfb:/var/www/html/public# php index.php 
+root@f78e7eba6dfb:/var/www/html/public# php index.php
 Introduce la nota: 10
 Sobresaliente
 ```
 
 Bucles (for, while, foreach)
 
-Muestra los números del 1 al 100 en pantalla.
+### Muestra los números del 1 al 100 en pantalla.
 
 CODIGO:
+
 ```php
 <?php
 for ($i = 0; $i <= 100; $i++) {
@@ -146,8 +156,9 @@ for ($i = 0; $i <= 100; $i++) {
 ```
 
 SALIDA:
+
 ```code
-root@f78e7eba6dfb:/var/www/html/public# php index.php 
+root@f78e7eba6dfb:/var/www/html/public# php index.php
 0
 1
 2
@@ -251,9 +262,10 @@ root@f78e7eba6dfb:/var/www/html/public# php index.php
 100
 ```
 
-Calcula la suma de los números del 1 al 50 usando un bucle.
+### Calcula la suma de los números del 1 al 50 usando un bucle.
 
 CODIGO:
+
 ```php
 <?php
 $sum = 0;
@@ -265,14 +277,16 @@ echo "La suma de numeros de 1 al 50 es $sum\n";
 ```
 
 SALIDA:
+
 ```
-root@f78e7eba6dfb:/var/www/html/public# php index.php 
+root@f78e7eba6dfb:/var/www/html/public# php index.php
 La suma de numeros de 1 al 50 es 1275
 ```
 
-Pide un número y genera su tabla de multiplicar del 1 al 10.
+### Pide un número y genera su tabla de multiplicar del 1 al 10.
 
 CODIGO:
+
 ```php
 <?php
 $num1 = (int) readline("Introduce el número: ");
@@ -285,8 +299,9 @@ for ($i = 1; $i <= 10; $i++) {
 ```
 
 SALIDA:
+
 ```
-36912151821242730root@f78e7eba6dfb:/var/www/html/public# php index.php 
+36912151821242730root@f78e7eba6dfb:/var/www/html/public# php index.php
 Introduce el número: 3
 3 x 1 = 3
 3 x 2 = 6
@@ -300,9 +315,10 @@ Introduce el número: 3
 3 x 10 = 30
 ```
 
-Muestra todos los números pares entre 1 y 50.
+### Muestra todos los números pares entre 1 y 50.
 
 CODIGO:
+
 ```php
 for ($i = 1; $i <= 50; $i++) {
     if ($i % 2 == 0){
@@ -313,6 +329,7 @@ for ($i = 1; $i <= 50; $i++) {
 ```
 
 SALIDA:
+
 ```
 2
 4
@@ -341,89 +358,395 @@ SALIDA:
 50
 ```
 
-Haz un bucle que cuente de 10 a 1 y luego muestre "¡Fin!".
+### Haz un bucle que cuente de 10 a 1 y luego muestre "¡Fin!".
 
 CODIGO:
 
-SALIDA:
-
-Calcula el factorial de un número introducido (ejemplo: 5! = 120).
-
-CODIGO:
 ```php
+for ($i = 10; $i >= 1; $i--) {
+    echo $i . "\n";
+}
+echo "¡Fin!\n";
+
 ```
 
 SALIDA:
 
-Combinando Condicionales y Bucles
+```code
+root@f78e7eba6dfb:/var/www/html# php public/index.php
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+¡Fin!
+```
 
-Escribe un algoritmo que muestre los números primos entre 1 y 50.
-
-CODIGO:
-
-SALIDA:
-
-Genera los primeros 20 términos de la secuencia de Fibonacci.
-
-CODIGO:
-
-SALIDA:
-
-Pide un número n y muestra sus múltiplos hasta 100.
-
-CODIGO:
-
-SALIDA:
-
-Calcula la suma de los números pares e impares entre 1 y 100 por separado.
+### Calcula el factorial de un número introducido (ejemplo: 5! = 120).
 
 CODIGO:
 
+```php
+<?php
+$num = (int) readline("Introduce un número: ");
+$factorial = 1;
+
+for ($i = 1; $i <= $num; $i++) {
+    $factorial *= $i;
+}
+
+echo "$factorial\n";
+```
+
 SALIDA:
 
-Genera un número aleatorio entre 1 y 20. Pide al usuario que lo adivine y usa un bucle con condicionales para dar pistas: "Mayor" o "Menor".
+```code
+Introduce un número: 5
+120
+```
+
+## Combinando Condicionales y Bucles
+
+### Escribe un algoritmo que muestre los números primos entre 1 y 50.
 
 CODIGO:
 
+```php
+<?php
+for ($num = 2; $num <= 50; $num++) {
+    $esPrimo = true;
+
+    for ($i = 2; $i <= sqrt($num); $i++) {
+        if ($num % $i == 0) {
+            $esPrimo = false;
+            break;
+        }
+    }
+
+    if ($esPrimo) {
+        echo $num . "\n";
+    }
+}
+
+```
+
 SALIDA:
 
-Construcción de Algorítmicos
+```
+root@f78e7eba6dfb:/var/www/html# php public/index.php
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+```
 
-Comprueba si un número es perfecto (la suma de sus divisores propios es igual al número).
+### Genera los primeros 20 términos de la secuencia de Fibonacci.
 
 CODIGO:
 
+```php
+$limite = 20;
+$a = 0;
+$b = 1;
+for ($i = 1; $i <= $limite; $i++) {
+    echo $a . "\n";
+    $siguiente = $a + $b;
+    $a = $b;
+    $b = $siguiente;
+}
+```
+
 SALIDA:
 
-Escribe un algoritmo que invierta los dígitos de un número (ejemplo: 123 → 321).
+```
+root@f78e7eba6dfb:/var/www/html/public# php index.php
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+1597
+2584
+4181
+```
+
+### Pide un número n y muestra sus múltiplos hasta 100.
 
 CODIGO:
 
+```php
+<?php
+$n = (int) readline("Introduce un número: ");
+
+
+for ($i = $n; $i <= 100; $i += $n) {
+    echo $i . "\n";
+}
+
+```
+
 SALIDA:
 
-Comprueba si una palabra almacenada en una variable es palíndroma.
+```
+Introduce un número: 4
+4
+8
+12
+16
+20
+24
+28
+32
+36
+40
+44
+48
+52
+56
+60
+64
+68
+72
+76
+80
+84
+88
+92
+96
+100
+```
+
+### Calcula la suma de los números pares e impares entre 1 y 100 por separado.
 
 CODIGO:
 
+```php
+$sumaPares = 0;
+$sumaImpares = 0;
+
+for ($i = 1; $i <= 100; $i++) {
+    if ($i % 2 == 0) {
+        $sumaPares += $i;
+    } else {
+        $sumaImpares += $i;
+    }
+}
+
+echo "pares: $sumaPares\n";
+echo "impares: $sumaImpares\n";
+```
+
 SALIDA:
 
-Escribe un algoritmo que calcule el máximo común divisor (MCD) de dos números.
+```code
+root@f78e7eba6dfb:/var/www/html# php public/index.php
+pares: 2550
+impares: 2500
+```
+
+### Genera un número aleatorio entre 1 y 20. Pide al usuario que lo adivine y usa un bucle con condicionales para dar pistas: "Mayor" o "Menor".
 
 CODIGO:
 
+```php
+<?php
+$numeroSecreto = rand(1, 20);
+
+do {
+    $intento = (int) readline("Adivina el número: ");
+
+    if ($intento < $numeroSecreto) {
+        echo "Mayor\n";
+    } elseif ($intento > $numeroSecreto) {
+        echo "Menor\n";
+    } else {
+        echo "Correcto\n";
+    }
+} while ($intento !== $numeroSecreto);
+```
+
 SALIDA:
 
-Muestra en pantalla un triángulo de altura n usando *.
+```code
+root@f78e7eba6dfb:/var/www/html# php public/index.php
+Adivina el número (entre 1 y 20): 3
+Mayor
+Adivina el número (entre 1 y 20): 3
+Mayor
+Adivina el número (entre 1 y 20): 5
+Mayor
+Adivina el número (entre 1 y 20): 6
+```
 
-Ejemplo con n = 5:
+## Construcción de Algorítmicos
 
+### Comprueba si un número es perfecto (la suma de sus divisores propios es igual al número).
+
+CODIGO:
+
+```php
+<?php
+$numero = (int) readline("Introduce un número: ");
+$sumaDivisores = 0;
+
+for ($i = 1; $i < $numero; $i++) {
+    if ($numero % $i == 0) {
+        $sumaDivisores += $i;
+    }
+}
+
+if ($sumaDivisores == $numero) {
+    echo "$numero es un número perfecto\n";
+} else {
+    echo "$numero no es un número perfecto\n";
+}
+
+```
+
+SALIDA:
+
+```
+root@f78e7eba6dfb:/var/www/html/public# php index.php
+Introduce un número: 4
+4 no es un número perfecto
+root@f78e7eba6dfb:/var/www/html/public# php index.php
+Introduce un número: 28
+28 es un número perfecto
+```
+
+### Escribe un algoritmo que invierta los dígitos de un número (ejemplo: 123 → 321).
+
+CODIGO:
+
+```php
+$numero = readline("Introduce un número: ");
+echo "Número invertido: " . strrev($numero) . "\n";
+```
+
+SALIDA:
+
+```
+root@f78e7eba6dfb:/var/www/html/public# php index.php
+Introduce un número: 452
+Número invertido: 254
+```
+
+### Comprueba si una palabra almacenada en una variable es palíndroma.
+
+CODIGO:
+
+```php
+
+<?php
+$palabra = readline("Introduce una palabra: ");
+$palabra = strtolower($palabra);
+$invertida = strrev($palabra);
+
+if ($palabra === $invertida) {
+    echo "La palabra es palíndroma\n";
+} else {
+    echo "La palabra no es palíndroma\n";
+}
+
+```
+
+SALIDA:
+
+```
+root@f78e7eba6dfb:/var/www/html/public# php index.php
+
+Introduce una palabra: asac
+La palabra no es palíndroma
+root@f78e7eba6dfb:/var/www/html/public# php index.php
+
+Introduce una palabra: ana
+La palabra es palíndroma
+```
+
+### Escribe un algoritmo que calcule el máximo común divisor (MCD) de dos números.
+
+CODIGO:
+
+```php
+<?php
+$a = (int) readline("Introduce el primer número: ");
+$b = (int) readline("Introduce el segundo número: ");
+$min = ($a < $b) ? $a : $b;
+$mcd = 1;
+for ($i = $min; $i >= 1; $i--) {
+    if ($a % $i == 0 && $b % $i == 0) {
+        $mcd = $i;
+        break;
+    }
+}
+echo "El MCD es: $mcd\n";
+```
+
+SALIDA:
+
+```
+root@f78e7eba6dfb:/var/www/html/public# php index.php
+Introduce el primer número: 8
+Introduce el segundo número: 16
+El MCD es: 8
+
+```
+
+### Muestra en pantalla un triángulo de altura n usando \*.
+
+CODIGO:
+
+```php
+<?php
+$n = (int) readline("Introduce la altura del triángulo: ");
+
+for ($i = 1; $i <= $n; $i++) {
+    echo str_repeat('*', $i) . "\n";
+}
+
+```
+
+SALIDA:
+
+```
+root@f78e7eba6dfb:/var/www/html/public# php index.php
+Introduce la altura del triángulo: 10
 *
 **
 ***
 ****
 *****
-
-
-CODIGO:
-
-SALIDA:
+******
+*******
+********
+*********
+**********
+```
