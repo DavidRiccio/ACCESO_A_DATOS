@@ -350,6 +350,8 @@ SALIDA:
 Calcula el factorial de un número introducido (ejemplo: 5! = 120).
 
 CODIGO:
+```php
+```
 
 SALIDA:
 
