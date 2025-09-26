@@ -1,3 +1,5 @@
-Zelda: 10
 Mario: 9
+Zelda: 10
 Sonic: 8
+Metroid: 10
+Fifa: 5
