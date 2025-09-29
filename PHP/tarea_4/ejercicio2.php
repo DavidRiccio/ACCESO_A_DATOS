@@ -8,7 +8,7 @@ if ($contenido === false) {
 }
 
 $contenido = strtolower($contenido);
-
+$contenido = str_replace([",","\n",".","\r"]," ",$contenido);
 $palabras = explode(" ", $contenido);
 
 $frecuencia = [];

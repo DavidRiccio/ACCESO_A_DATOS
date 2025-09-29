@@ -206,7 +206,6 @@ if ($contenido === false) {
 }
 
 $contenido = strtolower($contenido);
-
 $palabras = explode(" ", $contenido);
 
 $frecuencia = [];
