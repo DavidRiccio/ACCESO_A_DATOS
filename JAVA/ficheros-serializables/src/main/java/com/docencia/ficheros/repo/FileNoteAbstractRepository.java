@@ -1,4 +1,3 @@
-
 package com.docencia.ficheros.repo;
 
 import java.io.IOException;
@@ -13,32 +12,36 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import com.docencia.ficheros.model.Note;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-public class FileNoteRepository implements INoteRepository {
-
+public abstract class FileNoteAbstractRepository implements INoteRepository{
+    ObjectMapper mapper;
     private String nameFile;
     private Path path;
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+    List<Note> notas;
 
-    public FileNoteRepository() {
-        this.nameFile = "note-repository.txt";
-        try {
-            path = verificarFichero();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public FileNoteAbstractRepository(String name, ObjectMapper mapper){
+        this.nameFile = name;
+        this.mapper = mapper;
+        this.path = verificarFichero();
+
     }
 
-    private Path verificarFichero() throws IOException {
+    private Path verificarFichero(){
         URL resource;
         resource = getClass().getClassLoader().getResource(nameFile);
-        if (resource == null) {
-            throw new IOException("El fichero no exisite " + nameFile);
-        }
-
         return Paths.get(resource.getPath());
+    }
+
+    private List<Note> readAllInternal() {
+        try {
+            if (!Files.exists(path) || Files.size(path) == 0) return new ArrayList<>();
+            Note[] arrayNotes = mapper.readValue(Files.readAllBytes(path), Note[].class);
+            return new ArrayList<>(Arrays.asList(arrayNotes));
+        } catch (IOException e) {
+            throw new RuntimeException("Error leyendo el archivo", e);
+        }
     }
 
     @Override
@@ -74,16 +77,4 @@ public class FileNoteRepository implements INoteRepository {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
-
-    private List<Note> readAllInternal() {
-        XmlMapper xmlMapper = new XmlMapper();
-        try {
-            if (!Files.exists(path) || Files.size(path) == 0) return new ArrayList<>();
-            Note[] arrayNotes = xmlMapper.readValue(Files.readAllBytes(path), Note[].class);
-            return new ArrayList<>(Arrays.asList(arrayNotes));
-        } catch (IOException e) {
-            throw new RuntimeException("Error leyendo XML", e);
-        }
-    }
-
 }
