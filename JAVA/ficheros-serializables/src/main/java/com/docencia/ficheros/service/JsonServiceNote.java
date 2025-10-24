@@ -16,7 +16,7 @@ public class JsonServiceNote extends ServiceNoteAbstract {
         jsonMapper = new JsonMapper();
     }
 
-    private static Logger logger = LoggerFactory.getLogger(JsonServiceNote.class); 
+    private static Logger logger = LoggerFactory.getLogger(JsonServiceNote.class);
 
     @Override
     public boolean exists(String id) {

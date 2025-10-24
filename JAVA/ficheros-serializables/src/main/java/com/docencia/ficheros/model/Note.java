@@ -21,9 +21,24 @@ public class Note {
 
     @NotBlank
     private String content;
+    public Note(){
+
+    }
+    public Note(String id){
+        this.id = id;
+        
+    }
 
     /* Construcor por defecto */
-    public Note() {
+    /**Constructor con parametros
+     * @param id Identificador
+     * @param title Titulo
+     * @param content Contenido
+     */
+    public Note(String id, String title, String content) {
+        this.id = id;
+        this.title= title;
+        this.content= content;
     }
 
     public String getId() {

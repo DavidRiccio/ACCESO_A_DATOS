@@ -9,6 +9,9 @@ public interface INoteService {
     public boolean exists(String id);
 
     public Note findById(String id);
+    
+
+    
 
     public List<Note> findAll();
 
@@ -17,6 +20,7 @@ public interface INoteService {
     public boolean delete(String id);
 
     public String noteToString(Note note);
+
     public Note stringToNote(String data);
 
 }

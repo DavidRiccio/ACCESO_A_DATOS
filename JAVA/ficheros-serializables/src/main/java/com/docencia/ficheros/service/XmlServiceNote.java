@@ -15,7 +15,8 @@ public class XmlServiceNote extends ServiceNoteAbstract {
     public XmlServiceNote() {
         xmlMapper = new XmlMapper();
     }
-        private static Logger logger = LoggerFactory.getLogger(XmlServiceNote.class); 
+
+    private static Logger logger = LoggerFactory.getLogger(XmlServiceNote.class);
 
     @Override
     public boolean exists(String id) {
@@ -60,7 +61,7 @@ public class XmlServiceNote extends ServiceNoteAbstract {
         try {
             resultado = xmlMapper.readValue(data, Note.class);
         } catch (JsonProcessingException e) {
-            logger.error("Se ha producido un error en la transformacion de data {}", data,e);
+            logger.error("Se ha producido un error en la transformacion de data {}", data, e);
         }
         return resultado;
     }
