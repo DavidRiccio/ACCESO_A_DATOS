@@ -1,14 +1,13 @@
 package org.docencia.hotel.domain.model;
 
-import java.util.List;
-import java.util.Optional;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "rooms")
@@ -20,6 +19,58 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "hotel_id")
     Hotel hotel;
+
+    @Column(name = "number")
+    Integer roomNumber;
+
+
+    @Column(name = "price per night")
+    Float pricePerNight;
+
+    @Column(name = "type")
+    String type;
+
+    public Room() {
+    }
+
+    public Room(String id, Hotel hotel, Integer roomNumber, Float pricePerNight, String type) {
+        this.id = id;
+        this.hotel = hotel;
+        this.roomNumber = roomNumber;
+        this.pricePerNight = pricePerNight;
+        this.type = type;
+    }
+
+    public Room(String id ){
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Room)) {
+            return false;
+        }
+        Room room = (Room) o;
+        return Objects.equals(id, room.id) ;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", hotel='" + getHotel() + "'" +
+            ", roomNumber='" + getRoomNumber() + "'" +
+            ", pricePerNight='" + getPricePerNight() + "'" +
+            ", type='" + getType() + "'" +
+            "}";
+    }
 
     public String getId() {
         return this.id;
@@ -60,9 +111,5 @@ public class Room {
     public void setType(String type) {
         this.type = type;
     }
-
-    Integer roomNumber;
-    Float pricePerNight;
-    String type;
 
 }

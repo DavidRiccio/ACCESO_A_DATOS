@@ -1,30 +1,64 @@
 package org.docencia.hotel.domain.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+/**
+ * @author DavidRiccio
+ * @version 1.0.0
+ */
 
 @Entity
 @Table(name = "hotel")
 public class Hotel {
 
     @Id
+    @Column(name = "id")
     private String id;
-
+    @Column(name = "name")
     private String name;
+    @Column(name = "address")
     private String address;
 
     @OneToMany(mappedBy = "hotel")
+    @Column(name = "rooms")
     private List<Room> rooms = new ArrayList<>();
 
-    // Constructor vacío (requerido por JPA)
+    /**
+     * Constructor vacio
+     */
     public Hotel() {
     }
 
-    // Getters y Setters
+    /**
+     * Constructor con todos los parametros
+     * @param id id del Hotel
+     * @param name nombre del hotel
+     * @param address direccion del hotel
+     * @param rooms habitaciones del hotel
+     */
+    public Hotel(String id, String name, String address, List<Room> rooms) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        /* this.rooms = rooms; */
+    }
+
+    /**
+     * Constructor con id
+     * @param id id del hotel
+     */
+    public Hotel (String id) {
+        this.id = id;
+    }
+
+
     public String getId() {
         return id;
     }
@@ -56,4 +90,24 @@ public class Hotel {
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
+
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Hotel)) {
+            return false;
+        }
+        Hotel hotel = (Hotel) o;
+        return Objects.equals(id, hotel.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
 }

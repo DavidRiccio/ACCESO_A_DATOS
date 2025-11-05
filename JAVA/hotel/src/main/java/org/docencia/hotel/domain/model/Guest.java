@@ -1,20 +1,67 @@
 package org.docencia.hotel.domain.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.Objects;
 
 @Entity 
 @Table(name = "guests")
 public class Guest {
+
+    public Guest() {
+    }
+
+    public Guest(String id, String fullName, String email, String phone) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public Guest(String id){
+        this.id = id; 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Guest)) {
+            return false;
+        }
+        Guest guest = (Guest) o;
+        return Objects.equals(id, guest.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", fullName='" + getFullName() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", phone='" + getPhone() + "'" +
+            "}";
+    }
     @Id
     @GeneratedValue
     String id ;
 
-
+    @Column(name = "full name")
     String fullName;
+    
+    
+    @Column(name = "email")
     String email;
+    
+    @Column(name = "phone")
     String phone ;
 
     public String getId() {
