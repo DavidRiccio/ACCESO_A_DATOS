@@ -1,0 +1,17 @@
+package org.docencia.hotel.domain.repository;
+
+import org.docencia.hotel.domain.model.Hotel;
+import java.util.List;
+import java.util.Optional;
+
+public interface HotelRepository {
+    boolean existsById(String id);
+
+    Optional<Hotel> findById(String id);
+
+    List<Hotel> findAll();
+
+    Hotel save(Hotel hotel);
+
+    void deleteById(String id);
+}
