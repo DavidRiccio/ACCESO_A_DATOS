@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import io.micrometer.common.lang.NonNull;
+
 /**
  * @author DavidRiccio
  * @version 1.0.0
@@ -19,6 +21,7 @@ import java.util.Objects;
 public class Hotel {
 
     @Id
+    @NonNull
     @Column(name = "id")
     private String id;
     @Column(name = "name")
@@ -47,7 +50,13 @@ public class Hotel {
         this.id = id;
         this.name = name;
         this.address = address;
-        /* this.rooms = rooms; */
+        this.rooms = rooms;
+    }
+
+     public Hotel(String id, String name, String address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
     }
 
     /**

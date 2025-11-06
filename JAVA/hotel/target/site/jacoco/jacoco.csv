@@ -1,6 +1,10 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-docencia-notes,org.docencia.hotel,HotelApplication,8,0,0,0,3,0,2,0,2,0
-docencia-notes,org.docencia.hotel.domain.model,Room,103,0,4,0,40,0,18,0,16,0
-docencia-notes,org.docencia.hotel.domain.model,Hotel,27,65,0,4,7,23,4,11,4,9
-docencia-notes,org.docencia.hotel.domain.model,Booking,90,0,4,0,34,0,16,0,14,0
-docencia-notes,org.docencia.hotel.domain.model,Guest,90,0,4,0,35,0,16,0,14,0
+docencia-notes,org.docencia.hotel.persistence.jpa.Impl,HotelJpaImpl,0,28,0,0,0,7,0,6,0,6
+docencia-notes,org.docencia.hotel.persistence.jpa.Impl,RoomJpaImpl,0,33,0,0,0,8,0,7,0,7
+docencia-notes,org.docencia.hotel.persistence.jpa.Impl,GuestJpaImpl,0,28,0,0,0,7,0,6,0,6
+docencia-notes,org.docencia.hotel.persistence.jpa.Impl,BookingJpaImpl,0,35,0,0,0,8,0,7,0,7
+docencia-notes,org.docencia.hotel,HotelApplication,5,3,0,0,2,1,1,1,1,1
+docencia-notes,org.docencia.hotel.domain.model,Room,0,90,0,4,0,34,0,17,0,15
+docencia-notes,org.docencia.hotel.domain.model,Hotel,0,112,0,4,0,36,0,16,0,14
+docencia-notes,org.docencia.hotel.domain.model,Booking,0,102,0,4,0,39,0,18,0,16
+docencia-notes,org.docencia.hotel.domain.model,Guest,0,80,0,4,0,30,0,15,0,13

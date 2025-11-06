@@ -1,23 +1,18 @@
 package org.docencia.hotel.persistence.jpa;
 
-import org.docencia.hotel.domain.model.Booking;
-import org.docencia.hotel.repository.BookingRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
-
-import java.util.Date;
+import java.util.Date; 
 import java.util.List;
 
-@Repository
-public interface BookingJpaRepository extends JpaRepository<Booking, String>, BookingRepository {
+import org.docencia.hotel.domain.model.Booking;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-    @Override
+
+public interface BookingJpaRepository extends JpaRepository<Booking, String> {
     @Query("SELECT b FROM Booking b WHERE b.room.id = :roomId " +
-            "AND b.checkOut > :startDate AND b.checkIn < :endDate")
-    List<Booking> findByRoomIdAndDateRange(
-            @Param("roomId") String roomId,
-            @Param("startDate") Date startDate,
-            @Param("endDate") Date endDate);
+           "AND b.checkOut > :startDate AND b.checkIn < :endDate")
+    List<Booking> findByRoomIdAndDateRange(String roomId, String startDate, String endDate);
 }
+
+

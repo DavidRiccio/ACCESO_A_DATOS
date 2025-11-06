@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface RoomJpaRepository extends JpaRepository<Room, String>, RoomRepository {
+public interface RoomJpaRepository extends JpaRepository<Room, String> {
 
-    @Override
     List<Room> findByHotelId(String hotelId);
 }

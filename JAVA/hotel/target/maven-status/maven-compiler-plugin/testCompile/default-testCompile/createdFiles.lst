@@ -1,1 +1,8 @@
+org/docencia/hotel/persistence/jpa/impl/RoomRepositoryImplTest.class
+org/docencia/hotel/domain/model/GuestModelTest.class
+org/docencia/hotel/persistence/jpa/impl/BookingRepositoryImplTest.class
+org/docencia/hotel/domain/model/RoomModelTest.class
 org/docencia/hotel/domain/model/HotelModelTest.class
+org/docencia/hotel/domain/model/BookingModelTest.class
+org/docencia/hotel/persistence/jpa/impl/GuestRepositoryImplTest.class
+org/docencia/hotel/persistence/jpa/impl/HotelRepositoryImplTest.class

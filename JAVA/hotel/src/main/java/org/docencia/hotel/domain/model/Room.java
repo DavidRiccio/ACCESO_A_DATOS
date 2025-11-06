@@ -2,7 +2,6 @@ package org.docencia.hotel.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -10,10 +9,9 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "rooms")
+@Table(name = "room")
 public class Room {
     @Id
-    @GeneratedValue
     String id;
 
     @ManyToOne
@@ -61,16 +59,6 @@ public class Room {
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", hotel='" + getHotel() + "'" +
-            ", roomNumber='" + getRoomNumber() + "'" +
-            ", pricePerNight='" + getPricePerNight() + "'" +
-            ", type='" + getType() + "'" +
-            "}";
-    }
 
     public String getId() {
         return this.id;

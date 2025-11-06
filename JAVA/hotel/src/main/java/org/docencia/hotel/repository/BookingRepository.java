@@ -16,5 +16,5 @@ public interface BookingRepository {
 
     void deleteById(String id);
 
-    List<Booking> findByRoomIdAndDateRange(String roomId, Date startDate, Date endDate);
+    List<Booking> findByRoomIdAndDateRange(String roomId, String startDate, String endDate);
 }

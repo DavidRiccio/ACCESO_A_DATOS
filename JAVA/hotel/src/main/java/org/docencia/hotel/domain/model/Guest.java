@@ -2,13 +2,12 @@ package org.docencia.hotel.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity 
-@Table(name = "guests")
+@Table(name = "guest")
 public class Guest {
 
     public Guest() {
@@ -41,20 +40,10 @@ public class Guest {
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", fullName='" + getFullName() + "'" +
-            ", email='" + getEmail() + "'" +
-            ", phone='" + getPhone() + "'" +
-            "}";
-    }
     @Id
-    @GeneratedValue
     String id ;
 
-    @Column(name = "full name")
+    @Column(name = "full_name")
     String fullName;
     
     

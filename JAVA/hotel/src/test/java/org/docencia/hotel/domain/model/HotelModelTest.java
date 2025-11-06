@@ -11,9 +11,7 @@ import jakarta.transaction.Transactional;
 class HotelModelTest {
 
     private Hotel hotel;
-    private Room room1;
-    private Room room2;
-
+    private Room room1 = new Room("R1", hotel, 1, 20.0f, "Single");
 
     @BeforeEach
     @Transactional
@@ -30,7 +28,7 @@ class HotelModelTest {
         Assertions.assertTrue(hotel.equals(hotel2));
     }
 
-        @Test
+    @Test
     void EqualsObjectTest() {
         hotel.setId("H1");
         hotel.setName("Hotel");
@@ -56,6 +54,13 @@ class HotelModelTest {
         Assertions.assertEquals(id, hotel.getId());
     }
 
+
+
+    @Test
+    void idContructorTest() {
+        Hotel hotel1 = new Hotel("H1");
+        Assertions.assertEquals("H1", hotel1.getId());
+    }
     @Test
     void GetNameTest() {
         String name = hotel.getName();
@@ -63,8 +68,25 @@ class HotelModelTest {
     }
 
     @Test
+    void getRoomTest() {
+        hotel.setRooms(List.of(room1));
+        List<Room> rooms = hotel.getRooms();
+        Assertions.assertEquals(rooms, hotel.getRooms());
+    }
+
+    @Test
     void SetRoomsTest() {
-        
+        hotel.setRooms(List.of(room1));
+        Assertions.assertEquals(List.of(room1), hotel.getRooms());
+
+    }
+
+    @Test
+    void hotelHashCodeTest() {
+        Hotel hotel1 = new Hotel("H1", "Hotel A", "Calle 1", null);
+        Hotel hotel2 = new Hotel("H1", "Hotel B", "Calle 2", null);
+
+        Assertions.assertEquals(hotel1.hashCode(), hotel2.hashCode());
     }
 
 }

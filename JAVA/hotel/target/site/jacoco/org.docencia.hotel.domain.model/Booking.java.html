@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Booking.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">docencia-notes</a> &gt; <a href="index.source.html" class="el_package">org.docencia.hotel.domain.model</a> &gt; <span class="el_source">Booking.java</span></div><h1>Booking.java</h1><pre class="source lang-java linenums">package org.docencia.hotel.domain.model;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Booking.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">docencia-notes</a> &gt; <a href="index.source.html" class="el_package">org.docencia.hotel.domain.model</a> &gt; <span class="el_source">Booking.java</span></div><h1>Booking.java</h1><pre class="source lang-java linenums">package org.docencia.hotel.domain.model;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -9,94 +9,100 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = &quot;bookings&quot;)
+@Table(name = &quot;booking&quot;)
 public class Booking {
+
     @Id
-    @GeneratedValue
     String id;
 
     @ManyToOne
     @JoinColumn(name = &quot;room_id&quot;)
-    @Column(name = &quot;room&quot;)
     Room room;
 
     @ManyToOne
     @JoinColumn(name = &quot;guest_id&quot;)
-    @Column(name = &quot;guest&quot;)
     Guest guest;
 
+    @Column(name = &quot;check_in&quot;)
+    String checkIn;
 
-<span class="nc" id="L29">    public Booking() {</span>
-<span class="nc" id="L30">    }</span>
+    @Column(name = &quot;check_out&quot;)
+    String checkOut;
 
-<span class="nc" id="L32">    public Booking(String id){</span>
-<span class="nc" id="L33">        this.id = id;</span>
-<span class="nc" id="L34">    }</span>
+<span class="fc" id="L32">    public Booking() {</span>
+<span class="fc" id="L33">    }</span>
+     public Booking(String id) 
+<span class="fc" id="L35">     {</span>
+<span class="fc" id="L36">        this.id = id;</span>
+<span class="fc" id="L37">    }</span>
 
-<span class="nc" id="L36">    public Booking(String id, Room room, Guest guest) {</span>
-<span class="nc" id="L37">        this.id = id;</span>
-<span class="nc" id="L38">        this.room = room;</span>
-<span class="nc" id="L39">        this.guest = guest;</span>
-<span class="nc" id="L40">    }</span>
+<span class="fc" id="L39">       public Booking(String id, Room room, Guest guest) {</span>
+<span class="fc" id="L40">        this.id = id;</span>
+<span class="fc" id="L41">        this.room = room;</span>
+<span class="fc" id="L42">        this.guest = guest;</span>
+<span class="fc" id="L43">    }</span>
+
+<span class="fc" id="L45">    public Booking(String id, Room room, Guest guest, String checkIn, String checkOut) {</span>
+<span class="fc" id="L46">        this.id = id;</span>
+<span class="fc" id="L47">        this.room = room;</span>
+<span class="fc" id="L48">        this.guest = guest;</span>
+<span class="fc" id="L49">        this.checkIn = checkIn;</span>
+<span class="fc" id="L50">        this.checkOut = checkOut;</span>
+<span class="fc" id="L51">    }</span>
 
     public String getId() {
-<span class="nc" id="L43">        return this.id;</span>
+<span class="fc" id="L54">        return id;</span>
     }
 
     public void setId(String id) {
-<span class="nc" id="L47">        this.id = id;</span>
-<span class="nc" id="L48">    }</span>
+<span class="fc" id="L58">        this.id = id;</span>
+<span class="fc" id="L59">    }</span>
 
     public Room getRoom() {
-<span class="nc" id="L51">        return this.room;</span>
+<span class="fc" id="L62">        return room;</span>
     }
 
     public void setRoom(Room room) {
-<span class="nc" id="L55">        this.room = room;</span>
-<span class="nc" id="L56">    }</span>
+<span class="fc" id="L66">        this.room = room;</span>
+<span class="fc" id="L67">    }</span>
 
     public Guest getGuest() {
-<span class="nc" id="L59">        return this.guest;</span>
+<span class="fc" id="L70">        return guest;</span>
     }
 
     public void setGuest(Guest guest) {
-<span class="nc" id="L63">        this.guest = guest;</span>
-<span class="nc" id="L64">    }</span>
+<span class="fc" id="L74">        this.guest = guest;</span>
+<span class="fc" id="L75">    }</span>
 
-
-    public Booking room(Room room) {
-<span class="nc" id="L68">        setRoom(room);</span>
-<span class="nc" id="L69">        return this;</span>
+    public String getCheckIn() {
+<span class="fc" id="L78">        return checkIn;</span>
     }
 
-    public Booking guest(Guest guest) {
-<span class="nc" id="L73">        setGuest(guest);</span>
-<span class="nc" id="L74">        return this;</span>
+    public void setCheckIn(String checkIn) {
+<span class="fc" id="L82">        this.checkIn = checkIn;</span>
+<span class="fc" id="L83">    }</span>
+
+    public String getCheckOut() {
+<span class="fc" id="L86">        return checkOut;</span>
     }
+
+    public void setCheckOut(String checkOut) {
+<span class="fc" id="L90">        this.checkOut = checkOut;</span>
+<span class="fc" id="L91">    }</span>
 
     @Override
     public boolean equals(Object o) {
-<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (o == this)</span>
-<span class="nc" id="L80">            return true;</span>
-<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (!(o instanceof Booking)) {</span>
-<span class="nc" id="L82">            return false;</span>
-        }
-<span class="nc" id="L84">        Booking booking = (Booking) o;</span>
-<span class="nc" id="L85">        return Objects.equals(id, booking.id);</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        if (o == this)</span>
+<span class="fc" id="L96">            return true;</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        if (!(o instanceof Booking))</span>
+<span class="fc" id="L98">            return false;</span>
+<span class="fc" id="L99">        Booking booking = (Booking) o;</span>
+<span class="fc" id="L100">        return Objects.equals(id, booking.id);</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L90">        return Objects.hash(id);</span>
-    }
-
-    @Override
-    public String toString() {
-<span class="nc" id="L95">        return &quot;{&quot; +</span>
-<span class="nc" id="L96">            &quot; id='&quot; + getId() + &quot;'&quot; +</span>
-<span class="nc" id="L97">            &quot;, room='&quot; + getRoom() + &quot;'&quot; +</span>
-<span class="nc" id="L98">            &quot;, guest='&quot; + getGuest() + &quot;'&quot; +</span>
-            &quot;}&quot;;
+<span class="fc" id="L105">        return Objects.hash(id);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

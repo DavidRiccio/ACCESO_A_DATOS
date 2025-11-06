@@ -1,7 +1,7 @@
 package org.docencia.hotel.domain.model;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -9,38 +9,49 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "bookings")
+@Table(name = "booking")
 public class Booking {
+
     @Id
-    @GeneratedValue
     String id;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
-    @Column(name = "room")
     Room room;
 
     @ManyToOne
     @JoinColumn(name = "guest_id")
-    @Column(name = "guest")
     Guest guest;
 
+    @Column(name = "check_in")
+    String checkIn;
+
+    @Column(name = "check_out")
+    String checkOut;
 
     public Booking() {
     }
-
-    public Booking(String id){
+     public Booking(String id) 
+     {
         this.id = id;
     }
 
-    public Booking(String id, Room room, Guest guest) {
+       public Booking(String id, Room room, Guest guest) {
         this.id = id;
         this.room = room;
         this.guest = guest;
     }
 
+    public Booking(String id, Room room, Guest guest, String checkIn, String checkOut) {
+        this.id = id;
+        this.room = room;
+        this.guest = guest;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+    }
+
     public String getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(String id) {
@@ -48,7 +59,7 @@ public class Booking {
     }
 
     public Room getRoom() {
-        return this.room;
+        return room;
     }
 
     public void setRoom(Room room) {
@@ -56,31 +67,35 @@ public class Booking {
     }
 
     public Guest getGuest() {
-        return this.guest;
+        return guest;
     }
 
     public void setGuest(Guest guest) {
         this.guest = guest;
     }
 
-
-    public Booking room(Room room) {
-        setRoom(room);
-        return this;
+    public String getCheckIn() {
+        return checkIn;
     }
 
-    public Booking guest(Guest guest) {
-        setGuest(guest);
-        return this;
+    public void setCheckIn(String checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public String getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(String checkOut) {
+        this.checkOut = checkOut;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof Booking)) {
+        if (!(o instanceof Booking))
             return false;
-        }
         Booking booking = (Booking) o;
         return Objects.equals(id, booking.id);
     }
@@ -88,14 +103,5 @@ public class Booking {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", room='" + getRoom() + "'" +
-            ", guest='" + getGuest() + "'" +
-            "}";
     }
 }
