@@ -9,7 +9,7 @@ import jakarta.transaction.Transactional;
 public class RoomModelTest {
 
     private Hotel hotel;
-    private Room room1 = new Room("R1", hotel, 1, 20.0f, "Single");
+    private Room room1 = new Room("R105", hotel, 1, 20.0f, "Single");
 
     @BeforeEach
     @Transactional
@@ -20,12 +20,12 @@ public class RoomModelTest {
 
     @Test
     void RoomEqualsTest() {
-        room1.setId("R1");
+        room1.setId("R105");
         room1.setHotel(hotel);
         room1.setRoomNumber(1);
         room1.setPricePerNight(20.0f);
         room1.setType("Single");
-        Room room2 = new Room("R1", hotel, 1, 20.0f, "Single");
+        Room room2 = new Room("R105", hotel, 1, 20.0f, "Single");
         Assertions.assertTrue(room1.equals(room2));
 
 
@@ -33,12 +33,12 @@ public class RoomModelTest {
     }
     @Test
     void RoomEqualsObjectTest() {
-        room1.setId("R1");
+        room1.setId("R105");
         room1.setHotel(hotel);
         room1.setRoomNumber(1);
         room1.setPricePerNight(20.0f);
         room1.setType("Single");
-        Room room2 = new Room("R1", hotel, 1, 20.0f, "Single");
+        Room room2 = new Room("R105", hotel, 1, 20.0f, "Single");
         Assertions.assertTrue(room2.equals(room2));
     }
 
@@ -65,8 +65,8 @@ public class RoomModelTest {
 
     @Test
     void roomHashCodeTest() {
-        Room room1 = new Room("R1", hotel, 1, 20.0f, "Single");
-        Room room2 = new Room("R1", hotel, 2, 30.0f, "Double");
+        Room room1 = new Room("R105", hotel, 1, 20.0f, "Single");
+        Room room2 = new Room("R105", hotel, 2, 30.0f, "Double");
         Assertions.assertEquals(room1.hashCode(), room2.hashCode());
     
     }
@@ -80,8 +80,8 @@ public class RoomModelTest {
 
     @Test 
     void idContructorTest() {
-        Room room1 = new Room("R1");
-        Assertions.assertEquals("R1", room1.getId());
+        Room room1 = new Room("R105");
+        Assertions.assertEquals("R105", room1.getId());
     }
 
     @Test 
@@ -92,8 +92,8 @@ public class RoomModelTest {
 
 @Test
 void equalsWithNonRoomObjectTest() {
-    Room room = new Room("R1", hotel, 1, 20.0f, "Single");
-    String notARoom = "R1";
+    Room room = new Room("R105", hotel, 1, 20.0f, "Single");
+    String notARoom = "R105";
     
     Assertions.assertFalse(room.equals(notARoom));
 }

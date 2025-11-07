@@ -22,8 +22,8 @@ public class Room {
     Integer roomNumber;
 
 
-    @Column(name = "price per night")
-    Float pricePerNight;
+    @Column(name = "price per night",nullable = false)
+    private Float pricePerNight;
 
     @Column(name = "type")
     String type;

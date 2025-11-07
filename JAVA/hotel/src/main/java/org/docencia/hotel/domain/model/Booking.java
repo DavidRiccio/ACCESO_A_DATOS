@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 import java.util.Objects;
 
 @Entity
@@ -13,6 +14,7 @@ import java.util.Objects;
 public class Booking {
 
     @Id
+    @Column(name = "id")
     String id;
 
     @ManyToOne
@@ -31,12 +33,11 @@ public class Booking {
 
     public Booking() {
     }
-     public Booking(String id) 
-     {
+     public Booking(String id) {
         this.id = id;
     }
 
-       public Booking(String id, Room room, Guest guest) {
+    public Booking(String id, Room room, Guest guest) {
         this.id = id;
         this.room = room;
         this.guest = guest;

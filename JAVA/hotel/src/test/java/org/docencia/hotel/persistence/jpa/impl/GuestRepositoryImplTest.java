@@ -1,7 +1,7 @@
 package org.docencia.hotel.persistence.jpa.impl;
 
 import org.docencia.hotel.domain.model.Guest;
-import org.docencia.hotel.repository.GuestRepository;
+import org.docencia.hotel.repository.IGuestRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,18 +17,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class GuestRepositoryImplTest {
     
     @Autowired
-    private GuestRepository guestRepository;
+    private IGuestRepository guestRepository;
     
     private Guest testGuest;
     
     @BeforeEach
-    void setUp() {
+    void beforeEach(){
         testGuest = guestRepository.save(new Guest("g1", "John Doe", "john@example.com", "123456"));
 
     }
     
     @AfterEach
-    void tearDown() {
+    void afterEach() {
         guestRepository.deleteById("g1");
     }
     

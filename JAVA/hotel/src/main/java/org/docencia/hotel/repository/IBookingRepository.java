@@ -1,11 +1,11 @@
 package org.docencia.hotel.repository;
 
 import org.docencia.hotel.domain.model.Booking;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 
-public interface BookingRepository {
+public interface IBookingRepository {
     boolean existsById(String id);
 
     Optional<Booking> findById(String id);

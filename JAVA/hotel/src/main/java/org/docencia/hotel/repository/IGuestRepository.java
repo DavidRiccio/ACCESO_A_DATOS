@@ -4,7 +4,7 @@ import org.docencia.hotel.domain.model.Guest;
 import java.util.List;
 import java.util.Optional;
 
-public interface GuestRepository {
+public interface IGuestRepository {
     boolean existsById(String id);
 
     Optional<Guest> findById(String id);

@@ -2,6 +2,7 @@ package org.docencia.hotel.domain.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,16 +10,20 @@ import org.junit.jupiter.api.Test;
 import jakarta.transaction.Transactional;
 
 public class BookingModelTest {
-        private Hotel hotel;
+    private Hotel hotel;
     private Room room1 = new Room("R1", hotel, 1, 20.0f, "Single");
-    private Booking booking1 =  new Booking();
+    private Booking booking1 = new Booking();
     private Guest guest1 = new Guest("G1");
+    private String date1;
+    private String date2;
+
     @BeforeEach
     @Transactional
     void beforeEach() {
         room1 = new Room();
         guest1 = new Guest();
         booking1 = new Booking();
+
     }
 
     @Test
@@ -33,44 +38,47 @@ public class BookingModelTest {
     void getGuestTest() {
         booking1.setGuest(guest1);
         Guest guest = booking1.getGuest();
-        Assertions.assertEquals(guest, booking1.getGuest());}
-
-
+        Assertions.assertEquals(guest, booking1.getGuest());
+    }
 
     @Test
     void getIdTest() {
         String id = booking1.getId();
-        Assertions.assertEquals(id, booking1.getId());}
+        Assertions.assertEquals(id, booking1.getId());
+    }
 
     @Test
     void constructorIdTest() {
         Booking booking2 = new Booking("B1");
-        Assertions.assertEquals("B1", booking2.getId());}
-
-    @Test
-    void bookingConstructTest(){
-        Booking booking2 = new Booking("B1", room1, guest1, null, null);
         Assertions.assertEquals("B1", booking2.getId());
     }
 
     @Test
-    void bookingSetGuestTest(){
+    void bookingConstructTest() {
+        Booking booking2 = new Booking("B1", room1, guest1, date1, date2);
+        Assertions.assertEquals("B1", booking2.getId());
+    }
+
+    @Test
+    void bookingSetGuestTest() {
         booking1.setGuest(guest1);
         Assertions.assertEquals(guest1, booking1.getGuest());
     }
 
     @Test
-    void bookingSetRoomTest(){
+    void bookingSetRoomTest() {
         booking1.setRoom(room1);
-        Assertions.assertEquals(room1, booking1.getRoom());}
-    
+        Assertions.assertEquals(room1, booking1.getRoom());
+    }
+
     @Test
     void bookingEqualsTest() {
         booking1.setId("B1");
         booking1.setRoom(room1);
         booking1.setGuest(guest1);
         Booking booking2 = new Booking("B1", room1, guest1);
-        Assertions.assertTrue(booking1.equals(booking2));}
+        Assertions.assertTrue(booking1.equals(booking2));
+    }
 
     @Test
     void bookingEqualsObjectTest() {
@@ -78,7 +86,8 @@ public class BookingModelTest {
         booking1.setRoom(room1);
         booking1.setGuest(guest1);
         Booking booking2 = new Booking("B1", room1, guest1);
-        Assertions.assertTrue(booking2.equals(booking2));}
+        Assertions.assertTrue(booking2.equals(booking2));
+    }
 
     @Test
     void bookingHashCodeTest() {
@@ -89,34 +98,35 @@ public class BookingModelTest {
 
     @Test
     void bookingEqualsIsNotObjectTest() {
-        Assertions.assertFalse(booking1.equals("booking"));}
-    
-            @Test
-void testGetCheckOut() {
-    Booking booking = new Booking("b1", room1, guest1, "2025-11-10", "2025-11-13");
-    assertEquals("2025-11-13", booking.getCheckOut());
-}
+        Assertions.assertFalse(booking1.equals("booking"));
+    }
 
-@Test
-void testSetCheckOut() {
-    Booking booking = new Booking("b1", room1, guest1, "2025-11-10", "2025-11-13");
-    booking.setCheckOut("2025-11-15");
-    assertEquals("2025-11-15", booking.getCheckOut());
+    @Test
+    void testGetCheckOut() {
+        Booking booking = new Booking("b1", room1, guest1, date1, date2);
+        assertEquals(date2, booking.getCheckOut());
+    }
 
-}
-@Test
-void testGetCheckIn() {
-    Booking booking = new Booking("b1", room1, guest1, "2025-11-10", "2025-11-13");
-    assertEquals("2025-11-10", booking.getCheckIn());
-}
+    @Test
+    void testSetCheckOut() {
+        Booking booking = new Booking("b1", room1, guest1, date1, date2);
+        booking.setCheckOut(date2);
+        assertEquals(date2, booking.getCheckOut());
 
-@Test
-void testSetCheckIn() {
-    Booking booking = new Booking("b1", room1, guest1, "2025-11-10", "2025-11-13");
-    booking.setCheckIn("2025-11-09");
-    assertEquals("2025-11-09", booking.getCheckIn());
-}
+    }
 
+    @Test
+    void testGetCheckIn() {
+        Booking booking = new Booking("b1", room1, guest1, date1, date2);
+        assertEquals(date1, booking.getCheckIn());
+    }
 
+    @Test
+    void testSetCheckIn() {
+        Booking booking = new Booking("b1", room1, guest1, date1, date2);
+        booking.setCheckIn(date1);
+        assertEquals(date1, booking.getCheckIn());
+    }
 
+   
 }

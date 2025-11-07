@@ -2,8 +2,8 @@ package org.docencia.hotel.persistence.jpa.impl;
 
 import org.docencia.hotel.domain.model.Hotel;
 import org.docencia.hotel.domain.model.Room;
-import org.docencia.hotel.repository.HotelRepository;
-import org.docencia.hotel.repository.RoomRepository;
+import org.docencia.hotel.repository.IHotelRepository;
+import org.docencia.hotel.repository.IRoomRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,22 +19,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoomRepositoryImplTest {
     
     @Autowired
-    private RoomRepository roomRepository;
+    private IRoomRepository roomRepository;
     
     @Autowired
-    private HotelRepository hotelRepository;
+    private IHotelRepository hotelRepository;
     
     private Hotel testHotel;
     private Room testRoom;
     
     @BeforeEach
-    void setUp() {
+    void beforeEach() {
         testHotel = hotelRepository.save(new Hotel("h1", "Test Hotel", "Test City"));
         testRoom = roomRepository.save(new Room("r1", testHotel, 101, 100.0f, "Single"));
     }
     
     @AfterEach
-    void tearDown() {
+    void afterEach() {
         roomRepository.deleteById("r1");
         hotelRepository.deleteById("h1");
     }

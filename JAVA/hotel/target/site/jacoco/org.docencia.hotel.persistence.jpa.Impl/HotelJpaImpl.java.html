@@ -1,42 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HotelJpaImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">docencia-notes</a> &gt; <a href="index.source.html" class="el_package">org.docencia.hotel.persistence.jpa.Impl</a> &gt; <span class="el_source">HotelJpaImpl.java</span></div><h1>HotelJpaImpl.java</h1><pre class="source lang-java linenums">package org.docencia.hotel.persistence.jpa.Impl;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HotelJpaImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">docencia-notes</a> &gt; <a href="index.source.html" class="el_package">org.docencia.hotel.persistence.jpa.Impl</a> &gt; <span class="el_source">HotelJpaImpl.java</span></div><h1>HotelJpaImpl.java</h1><pre class="source lang-java linenums">package org.docencia.hotel.persistence.jpa.Impl;
+
 import org.docencia.hotel.domain.model.Hotel;
-import org.docencia.hotel.persistence.jpa.HotelJpaRepository;
-import org.docencia.hotel.repository.HotelRepository;
+import org.docencia.hotel.persistence.jpa.IHotelJpaRepository;
+import org.docencia.hotel.repository.IHotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
-<span class="fc" id="L12">public class HotelJpaImpl implements HotelRepository {</span>
-    
+<span class="fc" id="L15">public class HotelJpaImpl implements IHotelRepository {</span>
+
     @Autowired
-    private HotelJpaRepository hotelJpaRepository;
-    
+    private IHotelJpaRepository hotelJpaRepository;
+
     @Override
+    @Transactional
+
     public boolean existsById(String id) {
-<span class="fc" id="L19">        return hotelJpaRepository.existsById(id);</span>
+<span class="fc" id="L24">        return hotelJpaRepository.existsById(id);</span>
     }
-    
+
     @Override
+    @Transactional
+
     public Optional&lt;Hotel&gt; findById(String id) {
-<span class="fc" id="L24">        return hotelJpaRepository.findById(id);</span>
+<span class="fc" id="L31">        return hotelJpaRepository.findById(id);</span>
     }
-    
+
     @Override
+    @Transactional
+
     public List&lt;Hotel&gt; findAll() {
-<span class="fc" id="L29">        return hotelJpaRepository.findAll();</span>
+<span class="fc" id="L38">        return hotelJpaRepository.findAll();</span>
     }
-    
+
     @Override
+    @Transactional
+
     public Hotel save(Hotel hotel) {
-<span class="fc" id="L34">        return hotelJpaRepository.save(hotel);</span>
+<span class="fc" id="L45">        return hotelJpaRepository.save(hotel);</span>
     }
-    
+
     @Override
+    @Transactional
+
     public void deleteById(String id) {
-<span class="fc" id="L39">        hotelJpaRepository.deleteById(id);</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L52">        hotelJpaRepository.deleteById(id);</span>
+<span class="fc" id="L53">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

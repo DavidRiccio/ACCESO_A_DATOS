@@ -1,11 +1,8 @@
 spring:
   datasource:
-    url: jdbc:sqlite:memory
+    url: jdbc:sqlite:./hotel_puerto_test.db
     driver-class-name: org.sqlite.JDBC
-    username: ""
-    password: ""
   jpa:
     hibernate:
-      ddl-auto: create-drop
-    database-platform: org.hibernate.dialect.SQLiteDialect
-    show-sql: false
+      ddl-auto: update
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
