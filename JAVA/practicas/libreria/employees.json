@@ -1,0 +1,16 @@
+[ {
+  "id" : 1,
+  "name" : "Ana Torres",
+  "salary" : 2200.0,
+  "department" : null
+}, {
+  "id" : 2,
+  "name" : "Luis Pérez",
+  "salary" : 1800.0,
+  "department" : null
+}, {
+  "id" : 3,
+  "name" : "Marta Díaz",
+  "salary" : 2500.0,
+  "department" : null
+} ]

@@ -1,0 +1,20 @@
+<ArrayList>
+  <item>
+    <id>1</id>
+    <name>Ana Torres</name>
+    <salary>2200.0</salary>
+    <department/>
+  </item>
+  <item>
+    <id>2</id>
+    <name>Luis Pérez</name>
+    <salary>1800.0</salary>
+    <department/>
+  </item>
+  <item>
+    <id>3</id>
+    <name>Marta Díaz</name>
+    <salary>2500.0</salary>
+    <department/>
+  </item>
+</ArrayList>

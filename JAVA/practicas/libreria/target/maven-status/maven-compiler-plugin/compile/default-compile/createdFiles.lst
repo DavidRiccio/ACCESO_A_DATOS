@@ -1,0 +1,13 @@
+com/pratica1/repo/IEmployeeRepository.class
+com/pratica1/domain/model/file/NotBlank.class
+com/pratica1/domain/model/Employee.class
+com/pratica1/persistence/jpa/DepartmentJpaImpl.class
+com/pratica1/persistence/jpa/EmployeeJpaImpl.class
+com/pratica1/repo/jpa/IEmployeeJpaRepository.class
+com/pratica1/services/FileService.class
+com/pratica1/App.class
+com/pratica1/repo/file/INoteRepository.class
+com/pratica1/domain/model/file/Note.class
+com/pratica1/repo/IDepartmentRepository.class
+com/pratica1/domain/model/Department.class
+com/pratica1/repo/jpa/IDepartmentJpaRespository.class
