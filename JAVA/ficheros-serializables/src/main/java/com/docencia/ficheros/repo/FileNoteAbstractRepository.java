@@ -24,7 +24,6 @@ public abstract class FileNoteAbstractRepository implements INoteRepository {
     private String nameFile;
     private Path path;
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
-    List<Note> notas;
 
     public FileNoteAbstractRepository() {
 
@@ -42,23 +41,34 @@ public abstract class FileNoteAbstractRepository implements INoteRepository {
         resource = getClass().getClassLoader().getResource(nameFile);
         return Paths.get(resource.getPath());
     }
-
+    
     private List<Note> readAllInternal() {
         try {
             if (!Files.exists(path) || Files.size(path) == 0)
-                return new ArrayList<>();
+            return new ArrayList<>();
             Note[] arrayNotes = mapper.readValue(Files.readAllBytes(path), Note[].class);
             return new ArrayList<>(Arrays.asList(arrayNotes));
         } catch (IOException e) {
             throw new RuntimeException("Error leyendo el archivo", e);
         }
     }
-
+    
+    private void writeAllInternal(List<Note> items) {
+        try {
+            byte[] bytes = mapper.writerWithDefaultPrettyPrinter().writeValueAsBytes(items);
+            Files.write(path, bytes,
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.TRUNCATE_EXISTING,
+                    StandardOpenOption.WRITE);
+        } catch (IOException e) {
+            throw new RuntimeException("Error escribiendo JSON", e);
+        }
+    }
     @Override
     public boolean exists(String id) {
         throw new UnsupportedOperationException("Unimplemented method 'exists'");
     }
-
+    
     public Note find(Note note) {
         List<Note> notes = findAll();
         int position = notes.indexOf(note);
@@ -106,15 +116,4 @@ public abstract class FileNoteAbstractRepository implements INoteRepository {
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
-    private void writeAllInternal(List<Note> items) {
-        try {
-            byte[] bytes = mapper.writerWithDefaultPrettyPrinter().writeValueAsBytes(items);
-            Files.write(path, bytes,
-                    StandardOpenOption.CREATE,
-                    StandardOpenOption.TRUNCATE_EXISTING,
-                    StandardOpenOption.WRITE);
-        } catch (IOException e) {
-            throw new RuntimeException("Error escribiendo JSON", e);
-        }
-    }
 }
