@@ -1,7 +1,6 @@
 package com.docencia.personas.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.docencia.personas.model.Persona;
 

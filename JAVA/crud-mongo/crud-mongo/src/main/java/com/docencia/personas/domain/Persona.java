@@ -1,0 +1,76 @@
+package com.docencia.personas.domain;
+
+
+public class Persona {
+
+    private String id;
+
+    private String nombre;
+
+    private Integer edad;
+
+    private String email;
+
+    private Direccion direccion;
+
+    public Persona() {
+    }
+
+    public Persona(String nombre, Integer edad, String email, Direccion direccion) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.email = email;
+        this.direccion = direccion;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", email='" + email + '\'' +
+                ", direccion=" + direccion +
+                '}';
+    }
+}

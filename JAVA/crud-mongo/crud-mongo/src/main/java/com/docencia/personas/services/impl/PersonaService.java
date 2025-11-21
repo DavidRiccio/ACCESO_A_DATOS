@@ -8,7 +8,6 @@ import com.docencia.personas.repository.PersonaRepository;
 import com.docencia.personas.services.IPersonaService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PersonaService implements IPersonaService {
@@ -27,6 +26,8 @@ public class PersonaService implements IPersonaService {
 
     @Override
     public Persona findById(String id) {
+        /**TODO */
+        return null;
         
     }
 
