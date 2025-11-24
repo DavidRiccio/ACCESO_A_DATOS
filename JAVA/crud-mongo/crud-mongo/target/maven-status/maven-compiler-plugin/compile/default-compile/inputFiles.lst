@@ -1,4 +1,10 @@
+/home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/model/Rol.java
 /home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/model/Persona.java
+/home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/domain/PersonaEntity.java
 /home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/PersonasApplication.java
+/home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/repository/RolRepository.java
 /home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/model/Direccion.java
 /home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/repository/PersonaRepository.java
+/home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/services/IPersonaService.java
+/home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/services/impl/PersonaService.java
+/home/dam/Escritorio/david/AED/JAVA/crud-mongo/crud-mongo/src/main/java/com/docencia/personas/domain/DireccionEntity.java

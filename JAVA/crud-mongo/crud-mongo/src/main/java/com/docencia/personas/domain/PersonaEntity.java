@@ -1,7 +1,7 @@
 package com.docencia.personas.domain;
 
 
-public class Persona {
+public class PersonaEntity {
 
     private String id;
 
@@ -11,12 +11,12 @@ public class Persona {
 
     private String email;
 
-    private Direccion direccion;
+    private DireccionEntity direccion;
 
-    public Persona() {
+    public PersonaEntity() {
     }
 
-    public Persona(String nombre, Integer edad, String email, Direccion direccion) {
+    public PersonaEntity(String nombre, Integer edad, String email, DireccionEntity direccion) {
         this.nombre = nombre;
         this.edad = edad;
         this.email = email;
@@ -55,11 +55,11 @@ public class Persona {
         this.email = email;
     }
 
-    public Direccion getDireccion() {
+    public DireccionEntity getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(Direccion direccion) {
+    public void setDireccion(DireccionEntity direccion) {
         this.direccion = direccion;
     }
 

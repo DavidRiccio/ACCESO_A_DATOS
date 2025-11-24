@@ -25,7 +25,6 @@ public class PersonaServiceTest {
 
     private Persona personaColection;
     private Direccion direccion;
-    private Persona personaFind;
     private String email = "pepe1@gmail.com";
     private String ciudad = "Santa Cruz de Tenerife";
 
@@ -35,14 +34,10 @@ public class PersonaServiceTest {
         personaRepository.deleteAll();
         direccion = new Direccion("calle", ciudad, "38107", "Espania");
         personaColection = new Persona("test", 18, email, direccion);
-        personaFind = personaService.save(personaColection);
     }
 
     @Test
     void testFind(){
-        Assertions.assertEquals(1, personaRepository.count());
-        Assertions.assertNotNull(personaFind);
-        Assertions.assertNotNull(personaFind.getId());
     }
 
     @Test

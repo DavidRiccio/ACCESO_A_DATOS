@@ -1,6 +1,6 @@
 package com.docencia.personas.domain;
 
-public class Direccion {
+public class DireccionEntity {
 
     private String calle;
 
@@ -10,10 +10,10 @@ public class Direccion {
 
     private String pais;
 
-    public Direccion() {
+    public DireccionEntity() {
     }
 
-    public Direccion(String calle, String ciudad, String codigoPostal, String pais) {
+    public DireccionEntity(String calle, String ciudad, String codigoPostal, String pais) {
         this.calle = calle;
         this.ciudad = ciudad;
         this.codigoPostal = codigoPostal;

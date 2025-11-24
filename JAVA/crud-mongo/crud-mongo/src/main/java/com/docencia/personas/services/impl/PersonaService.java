@@ -26,9 +26,8 @@ public class PersonaService implements IPersonaService {
 
     @Override
     public Persona findById(String id) {
-        /**TODO */
-        return null;
-        
+        return personaRepository.findById(id).get();
+
     }
 
     @Override
@@ -39,7 +38,7 @@ public class PersonaService implements IPersonaService {
     @Override
     public boolean deleteById(String id) {
         personaRepository.deleteById(id);
-        return true; 
+        return true;
     }
 
 }
