@@ -3,7 +3,16 @@ package com.docencia.rest.service.interfaces;
 import java.util.List;
 import java.util.Optional;
 
-import com.docencia.rest.model.Producto;
+import com.docencia.rest.domain.Producto;
+
+
+
+
+/**
+ * Interfaz de Productos 
+ * @author DavidRiccio
+ * @version 1.0.0 
+ */
 
 public interface ProductoServiceInterface {
     /**

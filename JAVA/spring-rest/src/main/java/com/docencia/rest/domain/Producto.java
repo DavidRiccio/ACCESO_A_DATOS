@@ -1,38 +1,27 @@
-package com.docencia.rest.model;
+package com.docencia.rest.domain;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "productos")
 public class Producto {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
-    
-    @Column(name = "nombre")
+
     private String nombre;
-    
-    @Column(name = "precio")
+    private DetalleProducto detalleProducto;
+
     private BigDecimal precio;
-    
-    @Column(name = "stock")
+
     private int stock;
-    
-/*     @Column(name = "categoria")
-    private Categoria categoria;
-    
-    @Column(name = "detalle-producto")
-    private DetalleProducto detalle; */
+
 
     /**
      * Constructor vacio
      */
     public Producto() {
     }
+
+    
 
     /**
      * Constructor de Producto con todos los campos
@@ -49,13 +38,24 @@ public class Producto {
         this.stock = stock;
     }
 
-    public Producto(int id) {
-       this.id = id;
+    public Producto(int id, String nombre, DetalleProducto detalleProducto, BigDecimal precio, int stock) {
+        this.id = id;
+        this.nombre = nombre;
+        this.detalleProducto = detalleProducto;
+        this.precio = precio;
+        this.stock = stock;
     }
 
-    public void setId(int id){
-        this.id =id;
+
+
+    public Producto(int id) {
+        this.id = id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
@@ -84,7 +84,6 @@ public class Producto {
         this.stock = stock;
     }
 
-
     @Override
     public int hashCode() {
         return Objects.hash(id);
@@ -100,6 +99,15 @@ public class Producto {
             return false;
         Producto other = (Producto) obj;
         return Objects.equals(id, other.id);
+    }
+
+
+    public DetalleProducto getDetalleProducto() {
+        return detalleProducto;
+    }
+
+    public void setDetalleProducto(DetalleProducto detalleProducto) {
+        this.detalleProducto = detalleProducto;
     }
 
 }

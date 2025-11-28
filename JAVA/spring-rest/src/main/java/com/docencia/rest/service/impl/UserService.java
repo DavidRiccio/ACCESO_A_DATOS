@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.docencia.rest.exception.ResourceNotFoundException;
 import com.docencia.rest.model.User;
-import com.docencia.rest.repo.UserRepository;
+import com.docencia.rest.repo.interfaces.UserRepository;
 import com.docencia.rest.service.interfaces.UserServiceInterface;
 
 import jakarta.validation.Valid;
