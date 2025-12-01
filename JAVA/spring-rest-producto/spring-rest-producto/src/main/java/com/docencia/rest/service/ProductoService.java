@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.docencia.rest.domain.Producto;
 import com.docencia.rest.mappers.DetalleProductoMapper;
+import com.docencia.rest.mappers.MapperDetalleProducto;
+import com.docencia.rest.mappers.MapperProducto;
 import com.docencia.rest.mappers.ProductoMapper;
 import com.docencia.rest.modelo.DetalleProductoDocument;
 import com.docencia.rest.modelo.ProductoEntity;
@@ -24,13 +26,13 @@ public class ProductoService implements ProductoServiceInterface {
 
     final private DetalleProductoRepository detalleProductoRepository;
 
-    final private ProductoMapper productoMapper;
+    final private MapperProducto productoMapper;
 
-    final private DetalleProductoMapper detalleProductoMapper;
+    final private MapperDetalleProducto detalleProductoMapper;
 
 
     public ProductoService(ProductoRepository productoRepository, DetalleProductoRepository detalleProductoRepository,
-            ProductoMapper productoMapper, DetalleProductoMapper detalleProductoMapper) {
+            MapperProducto productoMapper, MapperDetalleProducto detalleProductoMapper) {
         this.productoRepository = productoRepository;
         this.detalleProductoRepository = detalleProductoRepository;
         this.productoMapper = productoMapper;

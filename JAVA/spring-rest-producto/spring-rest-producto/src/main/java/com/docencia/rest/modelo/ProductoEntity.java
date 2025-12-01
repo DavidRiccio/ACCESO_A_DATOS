@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "productos")
 public class ProductoEntity {
-    
+
     private int id;
 
     @Column(name = "nombre")
@@ -26,8 +26,10 @@ public class ProductoEntity {
      */
     public ProductoEntity() {
     }
+
     /**
      * Constructor con id
+     * 
      * @param id id del producto
      */
     public ProductoEntity(int id) {
@@ -36,9 +38,10 @@ public class ProductoEntity {
 
     /**
      * Constructor con todos parametros
+     * 
      * @param nombre nombre del producto
      * @param precio precio del producto
-     * @param stock stock del producto
+     * @param stock  stock del producto
      */
     public ProductoEntity(String nombre, BigDecimal precio, int stock) {
         this.nombre = nombre;
