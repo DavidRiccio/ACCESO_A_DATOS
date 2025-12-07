@@ -174,7 +174,8 @@ console.log(filtrarTareas(tareas, filtro));
 ```
 `node dist/cli.js `: Al ejecutar esto por consola nos da todas las tareas
 
-```json
+```bash
+
 Filtro: todas
 [
   {
