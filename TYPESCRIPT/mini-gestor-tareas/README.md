@@ -2,11 +2,9 @@
 
 Esta tarea es una pequeña práctica guiada en la que practicaremos Typescript.
 
-
-
 ## 1. Modelo de datos: interfaz Tarea
 
-Codigo: 
+`Codigo`: 
 
 ```typescript
     export interface Tarea {

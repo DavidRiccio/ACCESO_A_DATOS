@@ -7,19 +7,41 @@ export class RepositorioTareasSqlite {
     private db = getDb();
 
     obtenerTodas(): Tarea[] {
-        // TODO: SELECT * FROM tareas
-        //const tareas: Tarea[] = this.db.prepare("SELECT id, titulo, descripcion, completada FROM tareas")
-        //       .all();
-        return [];
+        const tareasQuery = this.db.prepare("SELECT * FROM tareas")
+        const tarea = tareasQuery.all();
+        const tareas: Tarea[] = tarea.map((raw: { id: number; titulo: any; descripcion: any; completada: number; }) => ({
+            id: raw.id as IdTarea,
+            titulo: raw.titulo,
+            descripcion: raw.descripcion,
+            completada: raw.completada === 1,
+        }));
+        return tareas;
     }
 
     obtenerPorId(id: IdTarea): Tarea | undefined {
-        // TODO: SELECT ... WHERE id = ?
-        return undefined;
+        const tareasQuery = this.db.prepare(
+            "SELECT id, titulo, descripcion, completada FROM tareas WHERE id = ?"
+        );
+
+        const tareaRaw = tareasQuery.get(id);
+
+        if (!tareaRaw) {
+            return undefined;
+        }
+
+        const tarea: Tarea = {
+            id: tareaRaw.id as IdTarea,
+            titulo: tareaRaw.titulo,
+            descripcion: tareaRaw.descripcion,
+            completada: tareaRaw.completada === 1,
+        };
+
+        return tarea;
     }
 
+
     crear(titulo: string, descripcion?: string): Tarea {
-        // TODO:
+        const tareaQuery = this.db.prepare("INSERT INTO tareas (titulo, descripcion, completada) VALUES (?,?,0)")
         // 1. INSERT INTO tareas (titulo, descripcion, completada) VALUES (?, ?, 0)
         // 2. Recuperar el id generado (stmt.run().lastInsertRowid)
         // 3. Devolver la tarea completa
