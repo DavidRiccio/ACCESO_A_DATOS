@@ -3,6 +3,7 @@ package es.david.practica1.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Socio {
 
     @Column(name = "fechaInscripcion")
     LocalDate fechaInscripcion;
-
+    @Schema(hidden = true) 
     @OneToMany
     List<Prestamo> prestamos;
 

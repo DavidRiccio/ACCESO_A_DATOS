@@ -75,8 +75,8 @@ public class SocioController {
                 socioPreferenciasService.obtenerPreferenciasPorSocioId(id);
         
         Map<String, Object> respuesta = new HashMap<>();
-        respuesta.put("socio", socio);
         respuesta.put("preferencias", preferencias.orElse(null));
+        respuesta.put("socio", socio);
         
         return ResponseEntity.ok(respuesta);
     }

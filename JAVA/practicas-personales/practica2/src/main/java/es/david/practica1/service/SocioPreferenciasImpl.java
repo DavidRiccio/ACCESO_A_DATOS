@@ -11,6 +11,7 @@ import es.david.practica1.model.SocioPreferencias;
 import es.david.practica1.repository.SocioPreferenciasRepository;
 import es.david.practica1.repository.SocioRepository;
 import es.david.practica1.service.interfaces.ISocioPreferenciasService;
+
 @Service
 public class SocioPreferenciasImpl implements ISocioPreferenciasService {
 
@@ -89,11 +90,10 @@ public class SocioPreferenciasImpl implements ISocioPreferenciasService {
     @Override
     public SocioPreferencias actualizarPreferenciasPorSocioId(Integer socioId, SocioPreferencias preferencias) {
         SocioPreferencias socioPreferencias = socioPreferenciasRepository.findBySocioId(socioId).orElse(null);
-      socioPreferencias.setGeneroFavorito(preferencias.getGeneroFavorito());
+        socioPreferencias.setGeneroFavorito(preferencias.getGeneroFavorito());
         socioPreferencias.setObservaciones(preferencias.getObservaciones());
         socioPreferencias.setUltimaActualizacion(LocalDateTime.now());
         return socioPreferenciasRepository.save(socioPreferencias);
-        }
-
+    }
 
 }

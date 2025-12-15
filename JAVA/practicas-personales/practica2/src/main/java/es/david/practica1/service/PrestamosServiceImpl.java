@@ -95,7 +95,7 @@ public class PrestamosServiceImpl implements IPrestamoService {
 
     @Override
     public long contarPrestamosPorSocio(Integer socioId) {
-      return prestamoRepository.countBySocioId(socioId);
+        return prestamoRepository.countBySocioId(socioId);
     }
 
     @Override
