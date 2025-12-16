@@ -13,28 +13,43 @@ import java.util.List;
 
 @Repository
 public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
-    
-    // Buscar todos los préstamos de un socio
+
+    /**
+     * Busca un Prestamo por socio
+     * 
+     * @param socio socio que hizo el prestamo
+     * @return Lista de prestamos de ese socio
+     */
     List<Prestamo> findBySocio(Socio socio);
-    
-    // Buscar préstamos por ID de socio
+
+    /**
+     * Busca por id del socio
+     * 
+     * @param socioId id del socio
+     * @return Lista de prestamos de ese socio
+     */
     List<Prestamo> findBySocioId(Integer socioId);
-    
-    // Buscar préstamos por título de libro
+
+    /**
+     * Busca los prestamos a traves de el titulo del libro
+     * 
+     * @param titulo titulo del libro
+     * @return Lista de prestamos
+     */
     List<Prestamo> findByTituloLibroContainingIgnoreCase(String titulo);
-    
-    // Buscar préstamos vencidos (fecha de devolución anterior a hoy)
+
+    /**
+     * Busca los prestamos antes de una fecha
+     * 
+     * @param fecha fecha limite del prestamo
+     * @return 
+     */
     List<Prestamo> findByFechaDevolucionBefore(LocalDate fecha);
-    
-    // Buscar préstamos activos de un socio
     @Query("SELECT p FROM Prestamo p WHERE p.socio.id = :socioId AND p.fechaDevolucion >= :hoy")
-    List<Prestamo> findPrestamosActivosBySocio(@Param("socioId") Integer socioId, 
-                                                @Param("hoy") LocalDate hoy);
-    
-    // Buscar préstamos realizados en un rango de fechas
+    List<Prestamo> findPrestamosActivosBySocio(@Param("socioId") Integer socioId,
+            @Param("hoy") LocalDate hoy);
+
     List<Prestamo> findByFechaPrestamoBetween(LocalDate inicio, LocalDate fin);
-    
-    // Contar préstamos de un socio
+
     long countBySocioId(Integer socioId);
 }
-
