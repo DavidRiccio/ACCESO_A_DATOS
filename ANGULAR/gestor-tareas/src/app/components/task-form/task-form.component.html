@@ -1,6 +1,9 @@
 <h3>Nueva tarea</h3>
 
-<p *ngIf="error" style="color: red">{{ error }}</p>
+@if (error) {
+  <p style="color: red">{{ error }}</p>
+}
+
 
 <input [(ngModel)]="titulo" placeholder="Título" />
 <input [(ngModel)]="descripcion" placeholder="Descripción" />

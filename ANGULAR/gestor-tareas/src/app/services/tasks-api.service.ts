@@ -5,7 +5,7 @@ import type { Task, NewTask } from '../models/task';
 
 @Injectable({ providedIn: 'root' })
 export class TasksApiService {
-  private readonly baseUrl = 'http://localhost:8080/api/tasks';
+  private readonly baseUrl = 'http://localhost:8080/api/tareas';
 
   constructor(private http: HttpClient) {}
 
