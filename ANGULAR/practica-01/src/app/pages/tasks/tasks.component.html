@@ -1,0 +1,20 @@
+<section class="card">
+  <h2>Lista de tareas</h2>
+
+  @if (tareas.length === 0) {
+    <p>No hay tareas todavía.</p>
+  } @else {
+    <ul class="list">
+      @for (t of tareas; track t.id) {
+        <li class="item">
+          <div>
+            <strong>{{ t.title }}</strong>
+            @if (t.description) { <div class="muted">{{ t.description }}</div> }
+          </div>
+
+          <button class="btn btn-ghost" (click)="borrar(t.id)">Eliminar</button>
+        </li>
+      }
+    </ul>
+  }
+</section>
