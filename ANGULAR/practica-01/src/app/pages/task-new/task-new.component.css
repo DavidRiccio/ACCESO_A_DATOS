@@ -1,16 +1,71 @@
 form {
     display: grid;
-    gap: 12px;
-    margin-top: 12px;
+    gap: 16px; /* Aumentado para dar aire como en el nav */
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #eee; /* Igual al borde del nav */
+    border-radius: 12px;
+    max-width: 500px;
 }
 
 label {
     display: grid;
-    gap: 6px;
+    gap: 8px;
+    color: #333; /* Color de texto del nav */
+    font-size: 0.95rem;
+}
+
+input[type="text"], 
+textarea {
+    padding: 10px 12px;
+    border: 1px solid #eee;
+    border-radius: 10px; /* Bordes redondeados como tus enlaces */
+    background: #fafafa;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, 
+textarea:focus {
+    outline: none;
+    border-color: #ffe6e6; /* Color suave del estado activo */
 }
 
 .check {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+/* Botón con el estilo "active" del nav */
+button[type="submit"] {
+    background: #ffe6e6; /* Fondo rojo suave */
+    color: #b71c1c; /* Texto rojo oscuro */
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+button[type="submit"]:disabled {
+    background: #f5f5f5;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-cancel {
+    background: transparent;
+    color: #666;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
 }

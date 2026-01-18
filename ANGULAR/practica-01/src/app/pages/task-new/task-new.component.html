@@ -1,31 +1,24 @@
-<section class="card">
-  <h2>Nueva tarea</h2>
+<form [formGroup]="form" (ngSubmit)="enviar()">
+  <label>
+    <span>Título de la tarea</span>
+    <input type="text" formControlName="title" placeholder="¿Qué hay que hacer?">
+  </label>
 
-  <form [formGroup]="form" (ngSubmit)="enviar()">
-    <label>
-      Título
-      <input class="input" formControlName="title" />
-    </label>
+  <label>
+    <span>Notas adicionales</span>
+    <textarea formControlName="description" rows="3" placeholder="Detalles opcionales..."></textarea>
+  </label>
 
-    @if (form.controls.title.touched && form.controls.title.invalid) {
-      <div class="error">
-        El título es obligatorio y debe tener al menos 3 caracteres.
-      </div>
-    }
+  <div class="check">
+    <input type="checkbox" id="completada" formControlName="completada">
+    <label for="completada" style="display: inline; cursor: pointer;">Marcar como completada</label>
+  </div>
 
-    <label>
-      Descripción (opcional)
-      <input class="input" formControlName="description" />
-    </label>
-
-    <label class="check">
-      <input type="checkbox" formControlName="completada" />
-      Completada
-    </label>
-
-    <div class="row">
-      <button (click)="enviar()">Crear</button>
-      <button class="btn btn-ghost" type="button" (click)="cancel()">Cancelar</button>
-    </div>
-  </form>
-</section>
+  <button type="submit" [disabled]="form.invalid">
+    Crear Tarea
+  </button>
+  
+  <button type="button" class="btn-cancel" (click)="cancel()">
+    Cancelar
+  </button>
+</form>
