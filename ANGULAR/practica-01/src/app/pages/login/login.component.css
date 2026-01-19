@@ -16,7 +16,7 @@ label {
     font-size: 0.95rem;
 }
 
-input[type="text"], 
+input, 
 textarea {
     padding: 10px 12px;
     border: 1px solid #eee;

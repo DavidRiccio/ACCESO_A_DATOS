@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="enviar()">
+  <label>
+    <span>User</span>
+    <input type="text" formControlName="username" placeholder="Username">
+  </label>
+
+  <label>
+    <span>Contraseña</span>
+    <input type="password" formControlName="password" placeholder="Contraseña">
+  </label>
+
+  <button type="submit" [disabled]="form.invalid">
+    Login
+  </button>
+  
+  <button type="button" class="btn-cancel" (click)="cancel()">
+    Cancelar
+  </button>
+</form>
