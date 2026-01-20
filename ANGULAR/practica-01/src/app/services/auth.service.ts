@@ -7,20 +7,31 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
- private baseUrl = 'http://localhost:8080/api/auth/';
- public token = "";
+  private baseUrl = 'http://localhost:8080/api/auth/';
+  public token = "";
   constructor(private http: HttpClient) { }
 
-  login(data: {username:string,password:string }): Observable<any> {
-    return this.http.post(this.baseUrl + "login",data);
+  login(data: { username: string, password: string }): Observable<any> {
+    return this.http.post(this.baseUrl + "login", data);
   }
 
-  getToken(){
-    return this.token;
+
+  setToken(response: any) {
+    const tokenString = response.token || response;
+
+    if (typeof tokenString === 'string') {
+      localStorage.setItem('auth_token', tokenString);
+    } else {
+      console.error('El token recibido no es un string:', response);
+    }
   }
 
-  setToken(token:string){
-     this.token= token;
+  getToken(): string | null {
+    return localStorage.getItem('auth_token');
+  }
+
+  logout() {
+    localStorage.removeItem('auth_token');
   }
 
 }

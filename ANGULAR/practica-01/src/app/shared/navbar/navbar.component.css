@@ -18,3 +18,15 @@
     color: #b71c1c;
     font-weight: 600;
 }
+
+
+button {
+    background: #ffe6e6; 
+    color: #b71c1c; 
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
