@@ -1,0 +1,9 @@
+<nav class="nav">
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  <a routerLink="/publishers" routerLinkActive="active">Publishers</a>
+  <a routerLink="/publishers/create" routerLinkActive="active">Añadir Publisher</a>
+  <a routerLink="/login" routerLinkActive="active">Login</a>
+    <button type="button" class="btn-cancel" (click)="logout()">
+    Cerrar Sesion
+  </button>
+</nav>

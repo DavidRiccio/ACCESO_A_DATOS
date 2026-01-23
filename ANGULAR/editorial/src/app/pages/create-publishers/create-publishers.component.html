@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="enviar()">
+  <label>
+    <span>nombre del publisher</span>
+    <input type="text" formControlName="name" placeholder="Nombre del publisher">
+  </label>
+
+  <label>
+    <span>Ciudad</span>
+    <input formControlName="city" rows="3" placeholder="Ciudad del publisher">
+  </label>
+
+  <button type="submit" [disabled]="form.invalid">
+    Añadir Publisher
+  </button>
+  
+  <button type="button" class="btn-cancel" (click)="cancel()">
+    Cancelar
+  </button>
+</form>

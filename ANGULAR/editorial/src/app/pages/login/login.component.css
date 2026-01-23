@@ -1,0 +1,72 @@
+form {
+    display: grid;
+    gap: 16px; 
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #eee; 
+    border-radius: 12px;
+    max-width: 500px;
+}
+
+label {
+    display: grid;
+    gap: 8px;
+    color: #333; 
+    font-size: 0.95rem;
+}
+
+input, 
+textarea {
+    padding: 10px 12px;
+    border: 1px solid #eee;
+    border-radius: 10px; 
+    background: #fafafa;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, 
+textarea:focus {
+    outline: none;
+    border-color: #6488ec; 
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+
+button[type="submit"] {
+    background: #6488ec; 
+    color: #ffffff; 
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+button[type="submit"]:disabled {
+    background: #f5f5f5;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-cancel {
+    background: #b4256d;
+    border-radius: 10px;
+     padding: 7px;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,20 @@
+<section class="card">
+  <h2>Lista de Publishers</h2>
+
+  @if (publishers.length === 0) {
+    <p>No hay publishers todavía.</p>
+  } @else {
+    <ul class="list">
+      @for (p of publishers; track p.id) {
+        <li class="item">
+          <div>
+            <strong>{{ p.name }}</strong>
+            @if (p.city) { <div class="muted">{{ p.city }}</div> }
+          </div>
+
+          <button class="btn btn-ghost" (click)="borrar(p.id)">Eliminar</button>
+        </li>
+      }
+    </ul>
+  }
+</section>
