@@ -35,7 +35,6 @@ export class LoginComponent {
     this.auth.login(data).subscribe({
       next: resToken => {
         this.router.navigateByUrl('/tareas'); 
-        this.auth.setToken(resToken);
       },
       error: (err) => {
         console.error('Error al login', err);

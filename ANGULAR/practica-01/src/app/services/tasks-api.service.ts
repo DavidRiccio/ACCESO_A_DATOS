@@ -16,7 +16,6 @@ export class TasksApiService {
     const token = this.auth.getToken();
     
     return new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
       'Authorization': `Bearer ${token}`
     });
   }

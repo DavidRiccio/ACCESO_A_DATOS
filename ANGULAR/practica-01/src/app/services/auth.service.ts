@@ -1,37 +1,34 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { AuthRequest, AuthResponse } from '../models/auth.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
+  private readonly TOKEN_KEY = 'token';
+  private readonly API = 'http://localhost:8080/api/auth';
 
-  private baseUrl = 'http://localhost:8080/api/auth/';
-  public token = "";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  login(data: { username: string, password: string }): Observable<any> {
-    return this.http.post(this.baseUrl + "login", data);
+  login(data:{username: string, password: string}) {
+    const body: AuthRequest =data;
+
+    return this.http.post<AuthResponse>(`${this.API}/login`, body).pipe(
+      tap(res => {
+        localStorage.setItem(this.TOKEN_KEY, res.token);
+      })
+    );
   }
 
-
-  setToken(response: any) {
-    const tokenString = response.token || response;
-
-    if (typeof tokenString === 'string') {
-      localStorage.setItem('auth_token', tokenString);
-    } else {
-      console.error('El token recibido no es un string:', response);
-    }
+ logout() {
+    localStorage.removeItem(this.TOKEN_KEY);
   }
 
   getToken(): string | null {
-    return localStorage.getItem('auth_token');
+    return localStorage.getItem(this.TOKEN_KEY);
   }
 
-  logout() {
-    localStorage.removeItem('auth_token');
+  isLoggedIn(): boolean {
+    return !!this.getToken();
   }
-
 }
