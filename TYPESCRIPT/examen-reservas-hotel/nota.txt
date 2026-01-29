@@ -1,0 +1,9 @@
+Nota final: 10/10
+Puntos: 8/8
+Tests: 44/44
+
+E1_Dominio: 1.5/1.5  (tests 2/2)
+E2_Logica: 1.5/1.5  (tests 15/15)
+E3_SQLite: 1.5/1.5  (tests 5/5)
+E4_REST: 1.5/1.5  (tests 10/10)
+E5_E6_Servicio_Sync: 2/2  (tests 4/4)
